@@ -1,0 +1,24 @@
+/*Con root apuntamos al elemnto padre html para que estas variables que definimos afecten todo de manera global*/
+:root {
+    /*A esta variable color-fondo le colocamos un negro azulado*/
+  --color-fondo: #05070a; 
+  --color-primario: #38bdf8;/*Color primario es un azul celeste vibrante */
+  --color-texto: #f8fafc;/*es un color blanco*/
+  --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*Definimos una jerarquia de fuentes*/
+}
+
+html {
+    /*scrool-behavior nos sirve para que cuando viajemos entre las diferentes secciones esto no pase de golpe sino con un deslizamiento suave*/
+  scroll-behavior: smooth;
+}
+/*Aqui estamos selecionando con body todo el contenido ocuerpo de la pagina*/
+body {
+  margin: 0;/*Quitamos los margenes que tienen por defecto esto evita que veamos un pequeño margen blanco */
+  /* Fondo degradado espacial */
+  background: radial-gradient(ellipse at bottom, #263445 0%, #05070a 100%);/*Definimos un fondo que empieza con un elipce de abajo hacia arriba en color gris y termina en un negro*/
+  color: var(--color-texto);/*Definimos un color de letra base*/
+  font-family: var(--fuente-principal);/*Definimos un jerarquia de tipografia estandar*/
+  min-height: 100vh;/*Nos aseguramos que el contenido abarque el 100% de la altura de la pantalla para que no salga cortado el fondo en caso de poco contenido*/
+  overflow-x: hidden;/*overflow-x: hidden;: Esta es una medida de seguridad. Evita que aparezca la barra de desplazamiento horizontal (la que sale abajo), algo que suele pasar cuando hacemos animaciones que entran desde los lados.*/
+}
+

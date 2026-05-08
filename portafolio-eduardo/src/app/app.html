@@ -1,0 +1,164 @@
+<!--Nav es una etiqueta que nos permite crear una barra de navegacion que estara en la parte superior de la pagina, le agregamos la clase navbar para dar estilos en css-->
+<nav class="navbar">
+  <!--El contenido de nuestro nav lo metemos dentro de nuestro div con la clase nav-container-->
+  <div class="nav-container">
+    <!--Colocamos un enlace que apunta inicio o la seccion de bienevenida dentro del enlace colocamos un span con .dev para darle un color distinto-->
+    <a href="#inicio" class="logo">EQ<span>.dev</span></a>
+    <!--Colocamos un menu con la clase nav-links para dar estilos-->
+    <ul class="nav-links">
+      <!--Colocamos un li donde dentro de cada li viene un enlace que apunta a las diferentes secciones de nuestra pagina como el inico la trayectoria, los proyectos o el contacto-->
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Trayectoria</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto" class="btn-contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+<!--Utilizamos la etiqueta main para señalar que esta parte es la parte principal de nuestra pagina-->
+<main>
+  <!-- SECCIÓN DE BIENVENIDA (HERO) hero es la zona de impacto o bienvenida, aqui con el id inicio señalamos que seccion tiene el id inicio por el cual podemos acceder a esta seccion a atravez de es id  la etiqueta seccion nos permite crear secciones espesificas y navegar a ellas a atravez de sus id-->
+  <section id="inicio" class="presentacion">
+    <!--este div con la clase hero-content nos permite agrupar nuestros elementos como la imagen y el div con la clase texto-intro uno al lado del otro esto se hace en css-->
+    <div class="hero-content">
+      <!--Este div contiene  la clase artrounata-box para dar estilos en css y contien nuestra imagen-->
+      <div class="astronauta-box">
+        <!-- En la etiqueta imagen en src o ruta colocamos una direcion web para nuestra imagen cabe descatar que esta etiqueta tiene la clase float-animation para dar estilos en css -->
+        <img src="https://cdn-icons-png.flaticon.com/512/2026/2026526.png" alt="Astronauta" class="float-animation">
+      </div>
+      <!--Nuestra etiqueta div tiene la clase texto-intro par dar estilos en css y este contenedor tiene nuestra informacion basica como nombre en un h1, y menciona que soy ingeniero en sistemas y el texto navegando en el desarrollo fullstack-->
+      <div class="texto-intro">
+        <h1>Eduardo Quevedo Victoria</h1>
+        <p>Ingeniero en Sistemas | Navegando en el desarrollo Full Stack</p>
+        <!--Enlace que apunta a la seccion proyectos-->
+        <div class="botones-intro">
+          <a href="#proyectos" class="btn-demo">Explorar Proyectos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE SOBRE MÍ Y ESTUDIOS -->
+   <!--Ahora creamos una seccion gracias a la etiqueta section con el id sobre-mi aqui hablaremos de mi experiencia academica y laboral asi como las tecnologias que domino-->
+<section id="sobre-mi" class="seccion-info">
+  <!--Colocamos este contenedor div con la clase contenedor-flex que contendra  asu vez dos secciones importantes o dos contenedor div con la clase columna esto nos permitira con ayuda de flex-box colocar nuestra primera seccion donde mostramos nuestra experiencia del lado izquierdo y nuestro arsenal tecnologico del lado derecho -->
+  <div class="contenedor-flex">
+    
+    <!-- Lado Izquierdo: Experiencia Real -->
+     <!--Meteremos toda nuestra informacion academica y laboral dewntro del contenedor div con la clase columna.-->
+    <div class="columna">
+      <h2 class="titulo-espacial">Misiones en la Tierra(Experiencia)</h2>
+      <div class="linea-tiempo">
+        <!-- Desarrollo -->
+        <div class="item-trayectoria destacada">
+          <span class="fecha">Actualidad - 6 meses</span>
+          <h4>Desarrollador Full Stack (Personal)</h4>
+          <p>Creación de ecosistemas web con Laravel 12 y Angular 21. Especializado en APIs REST y SPAs.</p>
+        </div>
+        <!-- Docencia -->
+        <div class="item-trayectoria">
+          <span class="fecha">Ene 2024 - Jul 2024</span>
+          <h4>Docente de Primaria</h4>
+          <p>Colegio Guadalupe Victoria. Desarrollo de habilidades comunicativas y gestión de grupos.</p>
+        </div>
+        <!-- DIF -->
+        <div class="item-trayectoria">
+          <span class="fecha">Servicio Social - 6 meses</span>
+          <h4>Becario de Soporte Técnico</h4>
+          <p>DIF Municipal. Mantenimiento de redes, hardware y asistencia técnica de sistemas.</p>
+        </div>
+        <!-- Estudios -->
+        <div class="item-trayectoria">
+          <span class="fecha">2021 - 2026</span>
+          <h4>Ingeniería en Sistemas Computacionales</h4>
+          <p>UVEG - Formación académica profesional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lado Derecho: Arsenal Tecnológico -->
+     <!--Aqui colocaremos todas las tecnologias que dominamos-->
+    <div class="columna">
+      <h2 class="titulo-espacial">Arsenal Tecnológico</h2>
+      <div class="skills-grid">
+        <!-- Lenguajes y Frameworks -->
+        <div class="skill-tag main">Laravel 12</div>
+        <div class="skill-tag main">Angular 21</div>
+        <div class="skill-tag">PHP</div>
+        <div class="skill-tag">TypeScript</div>
+        <div class="skill-tag">MySQL</div>
+        <!-- Herramientas -->
+        <div class="skill-tag tool">Postman</div>
+        <div class="skill-tag tool">Git / GitHub</div>
+        <div class="skill-tag">HTML5 & CSS3</div>
+        <div class="skill-tag">Soporte y Redes</div>
+        <div class="skill-tag">DaVinci Resolve</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- SECCIÓN DE PROYECTOS aqui colocamos el id proyectos para indicar que aqui tenemos nuestra seccion de proyectos -->
+  <section id="proyectos" class="seccion-proyectos">
+    <!--En nuestro titulo de la seccion  Misiones Completadas colocamos los estilos aqui en la etiqueta donde hacemos que le texto este centrado, que tenga un margen inferior de 40 px y un color de letra azul claro que lo colocamos con la variable color-primario que es equivalente a ese color-->
+    <h2 style="text-align: center; margin-bottom: 40px; color: var(--color-primario);">Misiones Completadas</h2>
+    <!--Este contendor div tiene la clase contendor grid para dar estilos en css ademas de que contiene un blucle for para lograr visualizar todos nuestros proyectos y que recorre el array de objetos misProyectos-->
+    <div class="contenedor-grid">
+      @for (proyecto of misProyectos; track proyecto.titulo) {
+        <!--Colocamos nuestra etiqueta article y para dar estilos de tarjeta la clase tarjeta-->
+        <article class="tarjeta">
+          <!--En este h1 accedemos a la propiedad titulo del elemento proyecto-->
+          <h3>{{ proyecto.titulo }}</h3>
+          <!--Accedemos a la porpiedad descripcion del elemento proyecto-->
+          <p>{{ proyecto.descripcion }}</p>
+
+          <!--En nuestro contenedor div con la clase tags tenemos un bucle for que nos ayudara a recorrer la propiedad tecnologias del elemento proyecto donde tecnologias es un array que contiene las tecnologias con que fue hecho el proyecto-->
+          <div class="tags">
+            @for (tech of proyecto.tecnologias; track tech) {
+              <span class="tag">{{ tech }}</span>
+            }
+          </div>
+<!--Por ultimo mostramos los enlaces de cada proyecto para acceder al proyecto desplegado o al codigo de github esta informacion esta dentro del contenedor div con la clase acciones-->
+          <div class="acciones">
+            <!--Ahora en la ruta a la que debe ir el enlace colocamos la propiedad enlace que contiene la direcion url del proyecto desplegado-->
+            <a [href]="proyecto.enlace" target="_blank" class="btn-demo">Ver Demo</a>
+            <!--Aqui tambien en este enlace accedemos a la propiedad github que nos redireje al repositorio de github-->
+            <a [href]="proyecto.github" target="_blank" class="btn-github">Ver Código</a>
+            <!--Este bloque if nos permite evaluar con su condicion si la propiedad esReposive es diferente a true es decir es false nos mostrara el espam con la etiqueta optimizado para pc-->
+            @if (!proyecto.esResponsive) {
+              <span class="nota-desktop">🖥️ Optimizado para PC</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE CONTACTO FINAL de igual manera con nuestra etiqueta section creamos la seccion de contacto donde añadimos el id contacto para navegar con facilidad a esta section -->
+<section id="contacto" class="seccion-contacto">
+  <div class="contacto-card">
+    <h2 class="titulo-espacial">¿Listo para iniciar la misión?</h2>
+    <p>Actualmente estoy buscando nuevas oportunidades para aportar mis habilidades en <strong>Laravel</strong> y <strong>Angular</strong>. Si tienes una propuesta o solo quieres saludar, ¡mi bandeja de entrada está abierta!</p>
+    
+    <div class="info-contacto-grid">
+      <div class="dato-contacto">
+        <span>📧 Correo Electrónico</span>
+        <p>quevedoedu2@gmail.com</p>
+      </div>
+      <div class="dato-contacto">
+        <span>📍 Ubicación</span>
+        <p>Salvatierra, Guanajuato, México</p>
+      </div>
+    </div>
+<!--Este div contiene los enlaces para ir a github y los enlaces para enviar u cooreo a nuestra direcion de gmail pero solo si quien entra tiene configurada esta opcion-->
+    <div class="botones-contacto-final">
+      <a href="mailto:quevedoedu2@gmail.com" class="btn-demo">Enviar Correo Directo</a>
+      <a href="https://github.com/Eduardo-07max" target="_blank" class="btn-github">Ver mi GitHub</a>
+    </div>
+  </div>
+</section>
+<!--En nuestro footer ponemos nuestro nombre y con que fue diseñada la web-->
+<footer style="text-align: center; padding: 40px; color: #4b5563; font-size: 0.8rem;">
+  © 2026 Eduardo Quevedo Victoria | Diseñado con Angular 21
+</footer>
+</main>

@@ -1,0 +1,366 @@
+/* --- RESET Y CONFIGURACIÓN GLOBAL --- */
+/*con el * estamos slecionando todo*/
+* {
+  box-sizing: border-box;/*con la propiedad border-box hacemos que nuestras cajas midan exactamente lo que definimos ya que si al agregar padding haremos mas grande esta caja pero con esta propiedad no pasa esto lo que pasa es que si agregas padding no se agrega espacio extra lo que pasa es que se comprime el contenido*/
+  margin: 0;
+  padding: 0;
+}
+
+/* --- LAYOUT DEL HERO (ESCRITORIO) --- */
+/*Estamos selecioando la section inicio*/
+.presentacion {
+  height: 100vh;/*Le estamos indicando que este elemento debe tener ocupar el 100% del alto de la pantalla*/
+  display: flex;/*Activamos el modo flexible dentro de la seccion*/
+  justify-content: center;/*Alinea el contenido de forma horizontal*/
+  align-items: center;/*Alinea el contenido de forma vertical*/
+  text-align: center; /*Le decimos a los textos que se centren*/
+  padding: 20px;/*Damos un padding de 20px en la izquierda y la derecha*/
+}
+/*Estamos selecionando al contenedor div con la clase hero-content este contendor contiene a su vez otrros 2 contenedores donde 1 contiene la imagen y otro la informacion como mi nombre que soy ingeniero y el texto navegando en el desarrollo fullstack */
+.hero-content {
+  display: flex;/*Activamos el modo flex para que los elementos dentro de este contenedor se agrupen uno al lado del otro */
+  align-items: center;/*Alinemos a los elementos hijos verticalmente*/
+  justify-content: center;/*Empujamos a los elementos hijos al centro horizontalmente*/
+  gap: 60px; /* Espacio entre astronauta y texto */
+  flex-wrap: wrap;/*flex-wrap: wrap: ¡Esto es vital! Si la pantalla es muy pequeña (como un celular) y el astronauta y el texto ya no caben juntos, esta propiedad permite que el que está a la derecha salte hacia abajo automáticamente.*/
+  max-width: 1200px;/*Establcemos un ancho maximo de nuestra caja de 1200px de ancho*/
+  width: 100%;/*Le decimos que debe intentar ocupar el 100% del ancho disponible*/
+}
+/*Estamos selecionando el div que esta dentro de hero content que tiene la calse texto-intro*/
+.texto-intro {
+  display: flex;/*Esta propiedad nos permite agrupar los elelemntos uno al lado del otro dependiendo del espacio disponible*/
+  flex-direction: column;/*Esta propiedad le dice a los elemntos que se apilen uno debajo del otro*/
+  align-items: flex-start; /* Alineado a la izquierda en PC */
+  text-align: left;/*Nos aseguramos que los textos empiecen de izquierda a drecha*/
+  gap: 20px; /* ¡CLAVE! Separa Título, Párrafo y Botón automáticamente 20px de sepracion*/
+  max-width: 600px;/*le decimos al nevagedor que el ancho maximo de este contenedor debe ser de 600px*/
+}
+/*Apuntamos al h1 que esta dentro del section con la clase presentacion*/
+.presentacion h1 {
+  font-size: 3.5rem;/*Le damos un tamaño de letra relativo de 3.5 rem*/
+  color: var(--color-primario);/*Le añadimos un color de letra azul usamos la varible color primario que equivale a ese color las variables las definimos en el archivo stiles.css*/
+  line-height: 1.1;/*line-height: 1.1: Controla el espacio entre líneas. Como el título es muy grande, un line-height pequeño (1.1) evita que, si tu nombre se divide en dos líneas, haya un hueco gigante entre ellas. Hace que el título se vea "compacto" y profesional.*/
+}
+/* --- ESTILOS DE TEXTO E IMAGEN EN EL HERO --- */
+
+/* Seleccionamos los párrafos (<p>) que se encuentran dentro de la sección con clase .presentacion */
+.presentacion p {
+  font-size: 1.2rem; /* Definimos el tamaño de la fuente a 1.2rem (aprox 19px) para que sea una lectura cómoda */
+  color: #cbd5e1; /* Aplicamos un color gris claro azulado para mantener la estética espacial */
+  max-width: 500px; /* Restringimos el ancho a 500px para que el texto no se estire demasiado y sea fácil de leer */
+}
+
+/* Seleccionamos la imagen dentro del contenedor con la clase .astronauta-box */
+.astronauta-box img {
+  width: 250px; /* Fijamos el ancho de la imagen en 250px para que tenga un tamaño equilibrado en pantalla */
+  filter: drop-shadow(0 0 15px var(--color-primario)); /* Creamos un resplandor de 15px con el color celeste alrededor de la silueta */
+}
+
+/* --- ANIMACIÓN ESPACIAL --- */
+
+/* Creamos la línea de tiempo de la animación llamada 'float' */
+@keyframes float {
+  0% { transform: translateY(0px); } /* En el segundo 0, la imagen está en su sitio original */
+  50% { transform: translateY(-20px); } /* A mitad de camino (segundo 2), la imagen sube 20px simulando flotación */
+  100% { transform: translateY(0px); } /* Al finalizar el ciclo, vuelve a su posición inicial */
+}
+
+/* Seleccionamos cualquier elemento que use la clase .float-animation */
+.float-animation {
+  animation: float 4s ease-in-out infinite; /* Aplicamos la animación 'float' por 4 segundos, de forma suave e infinita */
+}
+
+/* --- GRID DE PROYECTOS --- */
+
+/* Seleccionamos el contenedor principal de la rejilla de proyectos */
+.contenedor-grid {
+  display: grid; /* Activamos el sistema de rejilla (CSS Grid) para organizar las tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Crea columnas automáticas de mínimo 320px que llenan el espacio */
+  gap: 25px; /* Establecemos un espacio de 25px entre cada tarjeta del grid */
+  padding: 20px; /* Añadimos un relleno interno de 20px para que el grid no toque los bordes laterales */
+  max-width: 1200px; /* Definimos que el ancho total del grid no supere los 1200px para evitar que se vea muy estirado */
+  margin: 0 auto; /* Centramos el contenedor horizontalmente dejando el mismo espacio a izquierda y derecha */
+}
+
+/* Seleccionamos la etiqueta article que representa cada tarjeta de proyecto */
+.tarjeta {
+  background-color: #1e293b; /* Ponemos un color de fondo azul pizarra oscuro para que resalten los textos */
+  border-radius: 15px; /* Redondeamos las esquinas a 15px para darle un aspecto más moderno y suave */
+  padding: 25px; /* Añadimos 25px de espacio interno para que el contenido respire dentro de la tarjeta */
+  border: 1px solid rgba(56, 189, 248, 0.1); /* Dibujamos un borde muy fino y casi transparente de color celeste */
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Preparamos la tarjeta para que los cambios al pasar el mouse sean suaves */
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.05); /* Agregamos una sombra muy sutil para dar un poco de relieve */
+}
+
+/* Aplicamos cambios cuando el mouse está sobre la tarjeta */
+.tarjeta:hover {
+  transform: translateY(-10px); /* Elevamos la tarjeta 10px hacia arriba para dar interactividad */
+  border-color: var(--color-primario); /* Cambiamos el color del borde al azul celeste brillante */
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); /* Intensificamos la sombra para que parezca que la tarjeta brilla */
+}
+
+/* Seleccionamos el contenedor de las etiquetas (tags) de tecnologías */
+.tags {
+  display: flex; /* Usamos flexbox para que las etiquetas se pongan una al lado de la otra */
+  flex-wrap: wrap; /* Si hay muchas etiquetas, permite que bajen a la siguiente línea automáticamente */
+  gap: 8px; /* Dejamos un pequeño espacio de 8px entre cada tecnología */
+  margin: 15px 0; /* Aplicamos un margen de 15px arriba y abajo para separarlas de los otros elementos */
+}
+
+/* Seleccionamos los spans individuales que representan cada tecnología */
+.tag {
+  background-color: rgba(56, 189, 248, 0.1); /* Ponemos un fondo azul muy clarito y transparente */
+  color: var(--color-primario); /* Usamos el color celeste para el texto de la etiqueta */
+  font-size: 0.75rem; /* Definimos un tamaño de letra pequeño (aprox 12px) para las etiquetas */
+  padding: 5px 12px; /* Damos un relleno interno para que la etiqueta parezca una pastilla */
+  border-radius: 20px; /* Redondeamos totalmente los bordes (20px) para el estilo de cápsula */
+  font-weight: bold; /* Ponemos la letra en negrita para que se lea claramente */
+}
+
+/* Seleccionamos el contenedor de los botones de acción dentro de la tarjeta */
+.acciones {
+  margin-top: 20px; /* Separamos el bloque de botones 20px del contenido de arriba */
+  display: flex; /* Activamos el modo flexible */
+  flex-direction: column; /* Apilamos los botones uno encima del otro */
+  gap: 12px; /* Dejamos un espacio de 12px entre los botones */
+}
+
+/* Seleccionamos el botón de demostración (Ver Demo) */
+.btn-demo {
+  background-color: var(--color-primario); /* Pintamos el fondo con el azul celeste principal */
+  color: #0f172a; /* Ponemos el texto en azul oscuro casi negro para un contraste perfecto */
+  text-decoration: none; /* Quitamos el subrayado que los enlaces llevan por defecto */
+  text-align: center; /* Centramos el texto dentro del botón */
+  padding: 12px; /* Añadimos un relleno de 12px para que el botón sea grande y fácil de presionar */
+  border-radius: 8px; /* Redondeamos las esquinas del botón 8px */
+  font-weight: bold; /* Hacemos que el texto sea más grueso y destaque */
+  transition: 0.3s; /* Indicamos que cualquier cambio de estilo dure 0.3 segundos */
+}
+
+/* Cambiamos el estilo del botón demo cuando pasamos el mouse */
+.btn-demo:hover {
+  background-color: white; /* Cambiamos el fondo a blanco puro para un efecto visual llamativo */
+}
+
+/* Seleccionamos el botón de GitHub */
+.btn-github {
+  border: 2px solid var(--color-primario); /* Creamos un borde sólido de 2px con el color celeste */
+  color: var(--color-primario); /* Hacemos que el texto sea también de color celeste */
+  text-decoration: none; /* Eliminamos el subrayado del enlace */
+  text-align: center; /* Centramos el texto dentro del botón */
+  padding: 10px; /* Damos un relleno de 10px para ajustar el tamaño al botón de arriba */
+  border-radius: 8px; /* Redondeamos las esquinas 8px */
+  font-weight: bold; /* Resaltamos el texto en negrita */
+}
+
+/* --- NAVBAR (Barra de navegación) --- */
+
+/* Seleccionamos la barra de navegación completa */
+.navbar {
+  position: fixed; /* Hacemos que la barra siempre esté visible arriba aunque bajemos en la página */
+  top: 0; /* La pegamos exactamente al borde superior */
+  width: 100%; /* Le decimos que ocupe todo el ancho de la pantalla */
+  z-index: 1000; /* Le damos una prioridad de 1000 para que siempre esté por encima de todo el contenido */
+  background-color: rgba(15, 23, 42, 0.8); /* Fondo oscuro con 80% de opacidad para que sea traslúcido */
+  backdrop-filter: blur(10px); /* Aplicamos un desenfoque de 10px al fondo para un efecto cristalino elegante */
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1); /* Dibujamos una línea muy fina debajo de la barra */
+}
+
+/* Seleccionamos el contenedor que centra el contenido de la barra */
+.nav-container {
+  max-width: 1200px; /* Limitamos el ancho a 1200px para alinearlo con el resto de la página */
+  margin: 0 auto; /* Centramos el menú horizontalmente */
+  padding: 1rem 20px; /* Damos un relleno superior e inferior de 1rem y 20px a los lados */
+  display: flex; /* Activamos Flexbox */
+  justify-content: space-between; /* Ponemos el logo a la izquierda y el menú a la derecha con espacio en medio */
+  align-items: center; /* Centramos el logo y los links verticalmente */
+}
+
+/* Seleccionamos el texto que hace de logo */
+.logo {
+  font-size: 1.5rem; /* Definimos el tamaño del logo en 1.5rem (aprox 24px) */
+  font-weight: bold; /* Hacemos que el nombre resalte en negrita */
+  color: #fff; /* Pintamos el texto en color blanco */
+  text-decoration: none; /* Quitamos el subrayado de enlace */
+}
+
+/* Seleccionamos la etiqueta span dentro del logo */
+.logo span { color: var(--color-primario); } /* Pintamos el '.dev' con el color celeste principal */
+
+/* Seleccionamos la lista de enlaces de navegación */
+.nav-links {
+  display: flex; /* Ponemos los items de la lista en una fila horizontal */
+  list-style: none; /* Quitamos los puntos o balas de la lista */
+  gap: 30px; /* Dejamos una separación de 30px entre cada enlace */
+  align-items: center; /* Alineamos los links verticalmente con el logo */
+}
+
+/* Seleccionamos los enlaces dentro del menú de navegación */
+.nav-links a {
+  text-decoration: none; /* Quitamos el subrayado */
+  color: #fff; /* Ponemos el texto en color blanco */
+  font-size: 0.9rem; /* Usamos un tamaño de letra sutil de 0.9rem (aprox 14px) */
+}
+
+/* --- SECCIÓN INFO Y TRAYECTORIA --- */
+
+/* Seleccionamos la sección sobre mí */
+.seccion-info {
+  padding: 80px 20px; /* Damos un espacio de 80px arriba/abajo y 20px a los lados */
+  max-width: 1200px; /* Limitamos el ancho para que el contenido esté centrado */
+  margin: 0 auto; /* Centramos la sección en la página */
+}
+
+/* Seleccionamos el contenedor que usa flexbox para las columnas */
+.contenedor-flex {
+  display: flex; /* Activamos el modo flexible */
+  gap: 60px; /* Dejamos un espacio amplio de 60px entre la columna de experiencia y la de skills */
+  flex-wrap: wrap; /* Si la pantalla es pequeña, las columnas se apilan una debajo de otra */
+}
+
+/* Seleccionamos cada una de las dos columnas principales */
+.columna {
+  flex: 1; /* Hacemos que cada columna intente ocupar el mismo espacio (50% cada una) */
+  min-width: 320px; /* Aseguramos que ninguna columna sea más pequeña de 320px */
+}
+
+/* Seleccionamos los títulos con clase .titulo-espacial */
+.titulo-espacial {
+  color: var(--color-primario); /* Color celeste para el título */
+  border-left: 4px solid var(--color-primario); /* Creamos una línea vertical de 4px a la izquierda */
+  padding-left: 15px; /* Separamos el texto 15px de la línea vertical que creamos */
+  margin-bottom: 30px; /* Dejamos 30px de espacio debajo del título */
+  font-size: 1.8rem; /* Tamaño de letra grande (aprox 29px) para jerarquía */
+  text-transform: uppercase; /* Convertimos todo el texto a mayúsculas para un estilo más fuerte */
+}
+
+/* Seleccionamos cada item o bloque de la trayectoria */
+.item-trayectoria {
+  margin-bottom: 25px; /* Dejamos 25px de espacio entre un trabajo/estudio y el siguiente */
+  padding: 20px; /* Añadimos espacio interno para que el contenido respire */
+  background: rgba(255, 255, 255, 0.02); /* Añadimos un fondo blanco casi invisible para dar textura */
+  border-radius: 12px; /* Redondeamos las esquinas 12px */
+  border-left: 2px solid rgba(255, 255, 255, 0.1); /* Dibujamos una línea lateral gris muy suave */
+}
+
+/* Seleccionamos el texto que indica la fecha o periodo */
+.fecha {
+  color: var(--color-primario); /* Color celeste para que la fecha destaque */
+  font-size: 0.85rem; /* Tamaño de letra pequeño (aprox 13px) */
+  font-weight: bold; /* Hacemos la fecha más notable con negrita */
+  display: block; /* Obligamos a la fecha a ocupar toda su línea */
+  margin-bottom: 5px; /* Dejamos un pequeño espacio de 5px antes del título del cargo */
+}
+
+/* Seleccionamos el contenedor de las habilidades (skills) */
+.skills-grid {
+  display: flex; /* Activamos Flexbox */
+  flex-wrap: wrap; /* Permitimos que las habilidades salten de línea si no caben */
+  gap: 12px; /* Dejamos 12px de espacio entre cada recuadro de habilidad */
+}
+
+/* Seleccionamos cada recuadro de habilidad individual */
+.skill-tag {
+  background: #1e293b; /* Fondo azul oscuro pizarra */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde grisáceo sutil */
+  padding: 10px 18px; /* Relleno interno de 10px arriba/abajo y 18px a los lados */
+  border-radius: 8px; /* Esquinas redondeadas 8px */
+  font-size: 0.9rem; /* Tamaño de letra estándar de 0.9rem */
+}
+
+/* --- SECCIÓN CONTACTO --- */
+
+/* Seleccionamos la sección de contacto */
+.seccion-contacto {
+  padding: 100px 20px; /* Damos mucho espacio (100px) arriba y abajo */
+  display: flex; /* Activamos Flexbox */
+  justify-content: center; /* Centramos la tarjeta de contacto en medio de la pantalla */
+}
+
+/* Seleccionamos la tarjeta donde está la info de contacto */
+.contacto-card {
+  background: rgba(30, 41, 59, 0.5); /* Fondo azul oscuro con transparencia para efecto moderno */
+  border: 1px solid var(--color-primario); /* Borde celeste brillante */
+  padding: 50px; /* Mucho relleno interno de 50px para dar sensación de importancia */
+  border-radius: 20px; /* Esquinas muy redondeadas de 20px */
+  max-width: 800px; /* El ancho de la tarjeta no pasará de 800px */
+  text-align: center; /* Centramos todos los textos e hijos dentro de la tarjeta */
+  backdrop-filter: blur(10px); /* Aplicamos el efecto de desenfoque al fondo (Glassmorphism) */
+}
+
+/* Seleccionamos la rejilla de los datos de contacto (Email y Localización) */
+.info-contacto-grid {
+  display: grid; /* Activamos el modo Grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea columnas adaptables de mínimo 200px */
+  gap: 20px; /* Espacio de 20px entre el cuadro de correo y el de ubicación */
+  margin: 30px 0; /* Margen de 30px arriba y abajo */
+}
+
+/* Seleccionamos cada bloque de dato (Email o Ubicación) */
+.dato-contacto {
+  background: rgba(15, 23, 42, 0.5); /* Fondo oscuro transparente */
+  padding: 20px; /* Espacio interno de 20px */
+  border-radius: 10px; /* Esquinas redondeadas 10px */
+}
+
+/* Seleccionamos el contenedor de los botones finales */
+.botones-contacto-final {
+  display: flex; /* Activamos Flexbox */
+  justify-content: center; /* Centramos los botones horizontalmente */
+  gap: 20px; /* Dejamos 20px entre el botón de correo y el de GitHub */
+  flex-wrap: wrap; /* Si no caben, el segundo botón bajará */
+}
+
+/* Ajuste general para la etiqueta main */
+main { margin-top: 70px; } /* Añadimos un margen superior de 70px para que el contenido no quede debajo de la navbar fija */
+
+/* --- RESPONSIVE DESIGN (Diseño para móviles) --- */
+
+/* Aplicamos estos estilos solo si la pantalla mide 768px de ancho o menos */
+@media (max-width: 768px) {
+  .presentacion {
+    height: auto; /* Quitamos el alto fijo del 100% de la pantalla */
+    min-height: 100vh; /* Aseguramos que al menos mida toda la altura del dispositivo */
+    padding: 120px 20px 60px 20px; /* Aumentamos el espacio superior para compensar la barra de navegación */
+  }
+
+  .hero-content {
+    flex-direction: column-reverse; /* ¡Invertimos el orden! Primero el texto y arriba el astronauta */
+    gap: 40px; /* Reducimos el espacio entre astronauta y texto a 40px */
+  }
+
+  .texto-intro {
+    align-items: center; /* Centramos el texto y el botón horizontalmente */
+    text-align: center; /* Centramos las líneas de texto */
+    width: 100%; /* Hacemos que ocupe todo el ancho disponible */
+    gap: 25px; /* Aumentamos un poco el espacio entre elementos para que sea fácil de ver */
+  }
+
+  .presentacion h1 { font-size: 2.2rem; } /* Reducimos el nombre a 2.2rem para que no se vea gigante en el cel */
+  
+  .presentacion p { font-size: 1.1rem; } /* Ajustamos el párrafo a 1.1rem */
+
+  /* Ajustamos los botones de bienvenida para móviles */
+  .botones-intro, .botones-intro .btn-demo {
+    width: 100%; /* Hacemos que el botón ocupe todo el ancho */
+    max-width: 280px; /* Pero que no crezca más de 280px para que no se vea mal */
+  }
+
+  .nav-links { display: none; } /* Ocultamos el menú de navegación tradicional en celulares */
+  .nav-container { justify-content: center; } /* Centramos el logo en la parte superior */
+
+  .contacto-card { padding: 30px 15px; } /* Reducimos el relleno interno de la tarjeta de contacto para que quepa bien */
+
+  /* Los botones de contacto ahora se ponen uno debajo de otro */
+  .botones-contacto-final {
+    flex-direction: column; /* Cambiamos de fila a columna */
+    width: 100%; /* Ocupamos todo el ancho */
+  }
+
+  /* Ajustamos el tamaño de los botones finales para el celular */
+  .botones-contacto-final .btn-demo, 
+  .botones-contacto-final .btn-github {
+    width: 100%; /* Ocupan todo el ancho del contenedor */
+    min-width: 0; /* Quitamos cualquier restricción de ancho mínimo */
+  }
+}
